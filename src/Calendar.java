@@ -27,13 +27,18 @@ public class Calendar {
         Scanner scanner = new Scanner(System.in);
         Calendar cal = new Calendar();
 
-        System.out.println("Input repeat number");
         int month = 1;
         //Error occurred because 'cal.getMaxDaysOfMonth is executed at least 1 time
-        while (month != -1) {
+        while (true) {
             System.out.println("Input month");
             System.out.println(PROMPT);
-            int month = scanner.nextInt();
+            month = scanner.nextInt();
+            if (month < 1) {
+                break;
+            }
+            if (month > 12) {
+                continue;
+            }
             System.out.printf("%d month has %dday\n", month, cal.getMaxDaysOfMonth(month));
 
         }
