@@ -25,10 +25,18 @@ public class Calendar {
         //Put numbers then will printout the selected months largest day
         Scanner scanner = new Scanner(System.in);
         Calendar cal = new Calendar();
-        System.out.println("Input month number");
-        int month = scanner.nextInt();
 
-        System.out.printf("%d month has %dday\n", month, cal.getMaxDaysOfMonth(month));
+        System.out.println("Input repeat number");
+        int repeat = scanner.nextInt();
+
+        for (int i = 0; i < repeat; i++) {
+            System.out.println("Input month");
+            int month = scanner.nextInt();
+            System.out.printf("%d month has %dday\n", month, cal.getMaxDaysOfMonth(month));
+
+        }
+        System.out.println("Bye");
         scanner.close();
     }
+
 }
