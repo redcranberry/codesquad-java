@@ -28,9 +28,9 @@ public class Calendar {
         Calendar cal = new Calendar();
 
         System.out.println("Input repeat number");
-        int repeat = scanner.nextInt();
-
-        for (int i = 0; i < repeat; i++) {
+        int month = 1;
+        //Error occurred because 'cal.getMaxDaysOfMonth is executed at least 1 time
+        while (month != -1) {
             System.out.println("Input month");
             System.out.println(PROMPT);
             int month = scanner.nextInt();
