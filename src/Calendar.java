@@ -23,6 +23,7 @@ public class Calendar {
 
     public static void main(String[] args) {
         //Put numbers then will printout the selected months largest day
+        String PROMPT = "cal> ";
         Scanner scanner = new Scanner(System.in);
         Calendar cal = new Calendar();
 
@@ -31,6 +32,7 @@ public class Calendar {
 
         for (int i = 0; i < repeat; i++) {
             System.out.println("Input month");
+            System.out.println(PROMPT);
             int month = scanner.nextInt();
             System.out.printf("%d month has %dday\n", month, cal.getMaxDaysOfMonth(month));
 
