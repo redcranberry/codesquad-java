@@ -5,6 +5,19 @@ public class Calendar {
     private final int[] MAX_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
     public int getMaxDaysOfMonth(int month) {
+        //        switch (month) {
+        //        case 2:
+        //            return 28;
+        //        case 3:
+        //            return 30;
+        //        default:
+        //            return 31;
+        //        }
+        //        if (month == 1) {
+        //            return 31;
+        //        } else if (month == 2) {
+        //            return 28;
+        //        }
         return MAX_DAYS[month - 1];
     }
 
