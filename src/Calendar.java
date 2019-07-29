@@ -1,49 +1,37 @@
-import java.util.Scanner;
-
 public class Calendar {
 
     private final int[] MAX_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    private final int[] LEAP_MAX_DAYS = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-    public int getMaxDaysOfMonth(int month) {
-        //        switch (month) {
-        //        case 2:
-        //            return 28;
-        //        case 3:
-        //            return 30;
-        //        default:
-        //            return 31;
-        //        }
-        //        if (month == 1) {
-        //            return 31;
-        //        } else if (month == 2) {
-        //            return 28;
-        //        }
-        return MAX_DAYS[month - 1];
+    public boolean isLeapYear(int year) {
+        if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public static void main(String[] args) {
-        //Put numbers then will printout the selected months largest day
-        String PROMPT = "cal> ";
-        Scanner scanner = new Scanner(System.in);
-        Calendar cal = new Calendar();
+    public int getMaxDaysOfMonth(int year, int month) {
+        if (isLeapYear(year)) {
+            return LEAP_MAX_DAYS[month - 1];
+        } else {
+            return MAX_DAYS[month - 1];
+        }
+    }
 
-        int month = 1;
-        //Error occurred because 'cal.getMaxDaysOfMonth is executed at least 1 time
-        while (true) {
-            System.out.println("Input month");
-            System.out.println(PROMPT);
-            month = scanner.nextInt();
-            if (month < 1) {
-                break;
+    public void printCalendar(int year, int month) {
+        System.out.printf("   <<%4d %3d>>\n", year, month);
+        System.out.println("MON TUE WED THR FRI SAT SUN");
+        System.out.println("---------------------------");
+
+        int maxDay = getMaxDaysOfMonth(year, month);
+        for (int i = 1; i <= maxDay; i++) {
+            System.out.printf("%3d", i);
+            if (i % 7 == 0) {
+                System.out.println();
             }
-            if (month > 12) {
-                continue;
-            }
-            System.out.printf("%d month has %dday\n", month, cal.getMaxDaysOfMonth(month));
 
         }
-        System.out.println("Bye");
-        scanner.close();
+        System.out.println();
     }
-
 }
